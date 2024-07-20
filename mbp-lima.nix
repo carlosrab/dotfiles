@@ -3,11 +3,12 @@
 {
   imports = [
     ./modules/git.nix
+    ./modules/zsh.nix
   ];
 
   # This is required information for home-manager to do its job
   home = {
-    stateVersion = "23.11";
+    stateVersion = "24.05";
     username = "carlos";
     homeDirectory = "/Users/carlos";
     packages = with pkgs; [
