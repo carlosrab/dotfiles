@@ -1,4 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
+  imports = [
+    ./modules/git.nix
+  ];
+
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "23.11";
@@ -14,10 +20,21 @@
 
       # secondary tools
       ripgrep
+      fzf
 
       # nix lang related
       nil
       nixpkgs-fmt
+
+      # zsh
+      zsh-autocomplete
+      zsh-autosuggestions
+      zsh-fzf-history-search
+      zsh-powerlevel10k
+      zsh-syntax-highlighting
+
+      #git
+      lazygit
     ];
   };
   xdg.enable = true;
