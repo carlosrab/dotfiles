@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, libs, pkgs, ... }:
 
 {
   imports = [
@@ -60,11 +60,22 @@
     };
   };
 
-  xdg.enable = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "1password-cli"
+  ];
 
   programs = {
     home-manager.enable = true;
     neovim.enable = true;
+
+    # 1password agent
+    _1password-shell-plugins = {
+      # enable 1Password shell plugins for bash, zsh, and fish shell
+      enable = true;
+      # the specified packages as well as 1Password CLI will be
+      # automatically installed and configured to use shell plugins
+      plugins = with pkgs; [ gh ];
+    };
 
     # fast fuzzy search
     fzf = {
@@ -80,4 +91,6 @@
       enableAliases = true;
     };
   };
+
+  xdg.enable = true;
 }
