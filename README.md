@@ -9,3 +9,17 @@ Together with home manager nixpkgs helps manage dotfiles as well. So ideally I d
 ## Experimental
 
 I am currently testing this setup and hopefully it will result in an easy to use pattern for current and future setups.
+
+## TODO
+
+* [x] define a convention for dotfiles.
+* [x] add git details and configure to push to gitlab/gh or other.
+* [x] ensure zsh is part of the basic setup with the proper configuration.
+* [x] stretch / break configuraiton into smaller modules if necessary
+* [~] configure zsh ergonomics/plugins autocomplete, autosuggestion, ~fzf~, ~lazygit~, ~bat~, ~ripgrep~.
+* [~] autogenerate ssh if possible or use 1password cli to get ssh key.
+* [~] shell aliases
+* [] configure github/gitlab
+* [] configure tmux
+* [] configure nvim
+* [] test pushing this configuration to a remote/virtual/or new machine.
