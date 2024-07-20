@@ -21,7 +21,6 @@
 
       # secondary tools
       ripgrep
-      fzf
 
       # nix lang related
       nil
@@ -30,7 +29,6 @@
       # zsh
       zsh-autocomplete
       zsh-autosuggestions
-      zsh-fzf-history-search
       zsh-powerlevel10k
       zsh-syntax-highlighting
 
@@ -38,8 +36,22 @@
       lazygit
     ];
   };
+
   xdg.enable = true;
 
-  programs.home-manager.enable = true;
-  programs.neovim.enable = true;
+  programs = {
+    home-manager.enable = true;
+    neovim.enable = true;
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      # defaultCommand =
+      #   "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
+      # defaultOptions = [
+      #   "--border sharp"
+      #   "--inline-info"
+      # ];
+    };
+  };
 }
