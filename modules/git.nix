@@ -6,24 +6,26 @@
     userEmail = "49134466+carlosrab@users.noreply.github.com";
 
     aliases = {
-      gcm = "commit";
-      gca = "commit --amend --no-edit";
-      gco = "checkout";
+      # e.g., g cm or g ca
+      cm = "commit";
+      ca = "commit --amend --no-edit";
+      co = "checkout";
 
-      gdi = "diff";
+      di = "diff";
 
-      gpu = "pull";
-      gps = "push";
+      pu = "pull";
+      ps = "push";
 
-      gst = "status -sb";
+      sa = "add .";
+      st = "status -sb";
 
-      gri = "rebase -i";
-      grc = "rebase --continue";
+      ri = "rebase -i";
+      rc = "rebase --continue";
     };
 
     delta = {
       enable = true;
-      line-numbers = true;
+
       options = {
         syntax-theme = "solarized-dark";
         side-by-side = true;
@@ -31,16 +33,18 @@
     };
 
     extraConfig = {
-      pull.rebase = true;
-      init.defaultBranch = "main";
-      github.user = "carlosrab";
-      gitlab.user = "carlosrab";
-
-      push.autoSetupRemote = true;
-
       core.editor = "nvim";
       core.fileMode = false;
       core.ignorecase = false;
+
+      delta.line-numbers = true;
+
+      github.user = "carlosrab";
+      gitlab.user = "carlosrab";
+      init.defaultBranch = "main";
+
+      pull.rebase = true;
+      push.autoSetupRemote = true;
     };
 
     ignores = [

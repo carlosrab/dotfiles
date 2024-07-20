@@ -11,30 +11,53 @@
     stateVersion = "24.05";
     username = "carlos";
     homeDirectory = "/Users/carlos";
+
     packages = with pkgs; [
-      # super basic
-      git
-      neofetch
+      # improved utilities
+      bat # better cat
+      btop # better top
+      du-dust # better du
+      lsd # ls delux
+      neofetch # system info
+      ripgrep # faster grep
+
+      # core
+      curl
+      fd # improved find
       gnupg
+      gping # better ping
+      openssl
       tmux
       wget
 
-      # secondary tools
-      ripgrep
+      # network tools
+      nmap
 
       # nix lang related
-      nil
-      nixpkgs-fmt
+      nil # language server
+      nixpkgs-fmt # formatter
+
+      #git
+      gitAndTools.delta
+      gh #github
+      glab #gitlab
+      lazygit
 
       # zsh
       zsh-autocomplete
       zsh-autosuggestions
       zsh-powerlevel10k
       zsh-syntax-highlighting
-
-      #git
-      lazygit
     ];
+
+    shellAliases = {
+      # basic overrides
+      cat = "bat";
+      top = "btop";
+      htop = "btop";
+      ping = "gping";
+      diff = "delta";
+    };
   };
 
   xdg.enable = true;
@@ -43,15 +66,18 @@
     home-manager.enable = true;
     neovim.enable = true;
 
+    # fast fuzzy search
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      # defaultCommand =
-      #   "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
-      # defaultOptions = [
-      #   "--border sharp"
-      #   "--inline-info"
-      # ];
+      defaultCommand =
+        "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
+    };
+
+    # pretty ls
+    lsd = {
+      enable = true;
+      enableAliases = true;
     };
   };
 }
