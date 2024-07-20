@@ -4,12 +4,24 @@
     stateVersion = "23.11";
     username = "carlos";
     homeDirectory = "/Users/carlos";
-    packages = [
-      pkgs.git
-      pkgs.neofetch
+    packages = with pkgs; [
+      # super basic
+      git
+      neofetch
+      gnupg
+      tmux
+      wget
+
+      # secondary tools
+      ripgrep
+
+      # nix lang related
+      nil
+      nixpkgs-fmt
     ];
   };
   xdg.enable = true;
 
   programs.home-manager.enable = true;
+  programs.neovim.enable = true;
 }
