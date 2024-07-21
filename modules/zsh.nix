@@ -1,4 +1,4 @@
-{ config, pkgs, lib, libs, ... }:
+{ pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -37,6 +37,9 @@
 
     initExtra = ''
       source ~/.config/zsh/.p10k.zsh
+
+      bindkey '^[[A' history-search-backward
+      bindkey '^[[B' history-search-forward
     '';
   };
 }

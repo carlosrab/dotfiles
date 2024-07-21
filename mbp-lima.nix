@@ -1,7 +1,8 @@
-{ config, lib, libs, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
+    ./modules/alacritty.nix
     ./modules/git.nix
     ./modules/zsh.nix
   ];
@@ -81,8 +82,9 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand =
-        "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
+      # defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
+      defaultCommand = "rg --files --hidden";
+      fileWidgetCommand = "rg --files --hidden";
     };
 
     # pretty ls
