@@ -16,9 +16,9 @@ I am currently testing this setup and hopefully it will result in an easy to use
 * [x] add git details and configure to push to gitlab/gh or other.
 * [x] ensure zsh is part of the basic setup with the proper configuration.
 * [x] stretch / break configuraiton into smaller modules if necessary
-* [~] configure zsh ergonomics/plugins autocomplete, autosuggestion, ~fzf~, ~lazygit~, ~bat~, ~ripgrep~.
+* [x] configure zsh ergonomics/plugins autocomplete, autosuggestion, ~fzf~, ~lazygit~, ~bat~, ~ripgrep~.
+* [x] shell aliases
 * [~] autogenerate ssh if possible or use 1password cli to get ssh key.
-* [~] shell aliases
 * [] configure github/gitlab
 * [] configure tmux
 * [] configure nvim

@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -15,18 +15,24 @@
 
     packages = with pkgs; [
       # improved utilities
-      bat # better cat
-      btop # better top
-      du-dust # better du
-      lsd # ls delux
-      neofetch # system info
-      ripgrep # faster grep
+      # better cat
+      bat
+      # better top
+      btop
+      # better du
+      du-dust
+       # system info
+      neofetch
+      # faster grep
+      ripgrep
 
       # core
       curl
-      fd # improved find
+      # improved find
+      fd
       gnupg
-      gping # better ping
+      # better ping
+      gping
       openssl
       tmux
       wget
@@ -35,27 +41,30 @@
       nmap
 
       # nix lang related
-      nil # language server
-      nixpkgs-fmt # formatter
+      # language server
+      nil
+      nixpkgs-fmt
 
       #git
+      # diff tool
       gitAndTools.delta
-      gh #github
-      glab #gitlab
+      #github
+      gh
+      #gitlab
+      glab
+      # terminal ui for git
       lazygit
-
-      # zsh
-      zsh-autocomplete
-      zsh-autosuggestions
-      zsh-powerlevel10k
-      zsh-syntax-highlighting
     ];
 
     shellAliases = {
       # basic overrides
-      cat = "bat";
-      top = "btop";
-      htop = "btop";
+      # cat = "bat";
+      cd = "z";
+      # top = "btop";
+      # htop = "btop";
+      la = "eza -lag --icons";
+      ls = "eza -lg --icons";
+      lt = "eza -Tla --icons --git --git-ignore";
       ping = "gping";
       diff = "delta";
     };
@@ -88,9 +97,13 @@
     };
 
     # pretty ls
-    lsd = {
+    eza = {
       enable = true;
-      enableAliases = true;
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
   };
 
