@@ -4,6 +4,7 @@
   imports = [
     ./modules/alacritty.nix
     ./modules/git.nix
+    ./modules/ssh.nix
     ./modules/zsh.nix
   ];
 

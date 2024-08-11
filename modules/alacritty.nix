@@ -34,7 +34,7 @@
       selection.save_to_clipboard = true;
 
       window = {
-        blur = true;
+        # blur = true;
         opacity = 0.7;
         dynamic_title = true;
         dynamic_padding = true;
