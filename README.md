@@ -18,8 +18,8 @@ I am currently testing this setup and hopefully it will result in an easy to use
 * [x] stretch / break configuraiton into smaller modules if necessary
 * [x] configure zsh ergonomics/plugins autocomplete, autosuggestion, ~fzf~, ~lazygit~, ~bat~, ~ripgrep~.
 * [x] shell aliases
-* [] configure github/gitlab
-* [~] autogenerate or autofill or something - ssh if possible or use 1password cli to get ssh key.
+* [x] configure github/gitlab
+* [x] autogenerate or autofill or something - ssh if possible or use 1password cli to get ssh key.
 * [] improve fzf integration with git, bat and z. https://www.youtube.com/watch?v=mmqDYw9C30I
 * [] configure tmux
 * [] configure nvim
