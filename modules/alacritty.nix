@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       import = [ "${pkgs.alacritty-theme}/solarized_dark.toml" ];
       # import = [ "${pkgs.alacritty-theme}/kanagawa_wave.toml" ];
