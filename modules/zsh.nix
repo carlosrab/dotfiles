@@ -7,7 +7,7 @@
     # suggests a command based on input string so far.
     autosuggestion = {
       enable = true;
-      highlight = "fg=black,bg=cyan,bold";
+      highlight = "fg=cyan,bg=black,bold";
     };
     # completion options when pressing tab after writing a command or part of it.
     enableCompletion = true;
