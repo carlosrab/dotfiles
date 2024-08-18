@@ -12,15 +12,15 @@ I am currently testing this setup and hopefully it will result in an easy to use
 
 ## TODO
 
-* [x] define a convention for dotfiles.
-* [x] add git details and configure to push to gitlab/gh or other.
-* [x] ensure zsh is part of the basic setup with the proper configuration.
-* [x] stretch / break configuraiton into smaller modules if necessary
-* [x] configure zsh ergonomics/plugins autocomplete, autosuggestion, ~fzf~, ~lazygit~, ~bat~, ~ripgrep~.
-* [x] shell aliases
-* [x] configure github/gitlab
-* [x] autogenerate or autofill or something - ssh if possible or use 1password cli to get ssh key.
-* [x] improve fzf integration with git, bat and z. https://www.youtube.com/watch?v=mmqDYw9C30I
-* [] configure nvim
-* [] configure tmux
-* [] test pushing this configuration to a remote/virtual/or new machine.
+[x] define a convention for dotfiles.
+[x] add git details and configure to push to gitlab/gh or other.
+[x] ensure zsh is part of the basic setup with the proper configuration.
+[x] stretch / break configuraiton into smaller modules if necessary
+[x] configure zsh ergonomics/plugins autocomplete, autosuggestion, ~fzf~, ~lazygit~, ~bat~, ~ripgrep~.
+[x] shell aliases
+[x] configure github/gitlab
+[x] autogenerate or autofill or something - ssh if possible or use 1password cli to get ssh key.
+[x] improve fzf integration with git, bat and z. https://www.youtube.com/watch?v=mmqDYw9C30I
+[] configure nvim
+[] configure tmux
+[] test pushing this configuration to a remote/virtual/or new machine.
