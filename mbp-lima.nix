@@ -22,10 +22,12 @@
       btop
       # better du
       du-dust
-       # system info
+      # system info
       neofetch
       # faster grep
       ripgrep
+      # tldr but rust version. short help pages.
+      tlrc
 
       # core
       curl
@@ -59,7 +61,7 @@
 
     shellAliases = {
       # basic overrides
-      # cat = "bat";
+      cat = "bat";
       cd = "z";
       # top = "btop";
       # htop = "btop";
@@ -92,9 +94,16 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+
+      changeDirWidgetCommand = "fd --type d --hidden --strip-cwd-prefix --exclude .git";
+      changeDirWidgetOptions = ["--preview 'eza --tree --color=always {} | head -200'"];
+
       # defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
       defaultCommand = "rg --files --hidden";
+      defaultOptions = ["--preview 'bat -n --color=always --line-range :500 {}'"];
+
       fileWidgetCommand = "rg --files --hidden";
+      fileWidgetOptions = ["--preview 'bat -n --color=always --line-range :500 {}'"];
     };
 
     # pretty ls

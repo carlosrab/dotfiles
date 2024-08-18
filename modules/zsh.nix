@@ -38,12 +38,29 @@
     '';
 
     initExtra = ''
+      ## p10k related configuraiton.
       source ~/.config/zsh/.p10k.zsh
       
+      ## Custom keybindings
       # cmd + <back arrow>
       bindkey '^[[1;9D' backward-word
       # cmd + <forward arrow>
       bindkey '^[[1;9C' forward-word
+
+      ## Additional fzf configuration
+      # As far as I know I cannot manage this configruation directly using
+      # home manager fzf definition.
+      _fzf_comprun() {
+        local command=$1
+        shift
+
+        case "$command" in
+          cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+          export|unset) fzf --preview "eval 'echo \$ {}'" "$@" ;;
+          ssh)          fzf --preview 'dig {}' "$@" ;;
+          *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
+        esac
+      }
     '';
 
     plugins = [
