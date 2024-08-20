@@ -21,6 +21,6 @@ I am currently testing this setup and hopefully it will result in an easy to use
 * [x] configure github/gitlab
 * [x] autogenerate or autofill or something - ssh if possible or use 1password cli to get ssh key.
 * [x] improve fzf integration with git, bat and z. https://www.youtube.com/watch?v=mmqDYw9C30I
-* [.] configure nvim
-* [.] configure tmux
-* [.] test pushing this configuration to a remote/virtual/or new machine.
+* [] configure nvim
+* [] configure tmux
+* [] test pushing this configuration to a remote/virtual/or new machine.
