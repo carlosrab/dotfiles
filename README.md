@@ -2,6 +2,23 @@
 
 Files in this directory are our nixpkgs configuration that serves to easily replicate my development setup in different devices and environments.
 
+## Starting from scratch
+
+### MacOS
+
+1. Install nix using the DeterminateSystems installer:
+  ```
+  curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+  ```
+1. Get nix configuration from github:
+  ```
+  TBD
+  ```
+1. First home-manager run:
+  ```
+  nix run github:nix-community/home-manager -- switch --flake .
+  ``` 
+
 ## Home Manager
 
 Together with home manager nixpkgs helps manage dotfiles as well. So ideally I do not need to maintain a separate repository for dotfile configurations.
