@@ -98,10 +98,10 @@
         src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
         file = "powerlevel10k.zsh-theme";
       }
-      # {
-      #   name = "fzf-tab";
-      #   src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
-      # }
+      {
+        name = "fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
       {
         # replaces standard zsh-syntax-highlighting but does not appear to be much different.
         name = "fast-syntax-highlighting";
