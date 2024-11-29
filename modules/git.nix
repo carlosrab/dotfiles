@@ -27,7 +27,7 @@
       enable = true;
 
       options = {
-        syntax-theme = "solarized-light";
+        syntax-theme = "Coldark-Dark";
         side-by-side = true;
       };
     };

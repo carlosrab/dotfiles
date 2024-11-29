@@ -65,9 +65,9 @@
       cd = "z";
       # top = "btop";
       # htop = "btop";
-      la = "eza -lag --icons";
-      ls = "eza -lg --icons";
-      lt = "eza -Tla --icons --git --git-ignore";
+      la = "eza -lag --icons ";
+      ls = "eza -lg --icons ";
+      lt = "eza -Tla -L=1 --icons --git --git-ignore ";
       ping = "gping";
       diff = "delta";
     };
@@ -98,18 +98,14 @@
       changeDirWidgetCommand = "fd --type d --hidden --strip-cwd-prefix --exclude .git";
       changeDirWidgetOptions = ["--preview 'eza --tree --color=always {} | head -200'"];
 
-      # defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
-      defaultCommand = "rg --files --hidden";
-      defaultOptions = ["--preview 'bat -n --color=always --line-range :500 {}'"];
+      defaultCommand = "fd --type f --hidden --follow --exclude .git";
 
       fileWidgetCommand = "rg --files --hidden";
       fileWidgetOptions = ["--preview 'bat -n --color=always --line-range :500 {}'"];
     };
 
     # pretty ls
-    eza = {
-      enable = true;
-    };
+    eza.enable = true;
 
     zoxide = {
       enable = true;
