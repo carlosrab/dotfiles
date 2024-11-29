@@ -65,9 +65,11 @@
       cd = "z";
       # top = "btop";
       # htop = "btop";
-      la = "eza -lag --icons ";
-      ls = "eza -lg --icons ";
-      lt = "eza -Tla -L=1 --icons --git --git-ignore ";
+
+      # Adds `**` as a hack to work around some fzf-tab conflict for the ls alias.
+      la = "eza -lag --icons **";
+      ls = "eza -lg --icons **";
+      lt = "eza -Tla -L=1 --icons --git --git-ignore";
       ping = "gping";
       diff = "delta";
     };
