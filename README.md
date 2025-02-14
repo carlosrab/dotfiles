@@ -38,6 +38,8 @@ I am currently testing this setup and hopefully it will result in an easy to use
 * [x] configure github/gitlab
 * [x] autogenerate or autofill or something - ssh if possible or use 1password cli to get ssh key.
 * [x] improve fzf integration with git, bat and z. https://www.youtube.com/watch?v=mmqDYw9C30I
-* [] configure nvim
-* [] configure tmux
-* [] test pushing this configuration to a remote/virtual/or new machine.
+* [ ] figure out a way to use nixpkgs but with my own dotfiles if possible. some home-manager configurations get tricky.
+  * [ ] consider using an additional dotfiles folder that home-manager uses as reference or test if I do not even need to feed the dotfiles through home-manager. make sure to version control dotfiles.
+* [ ] configure nvim
+* [ ] configure tmux
+* [ ] test pushing this configuration to a remote/virtual/or new machine. for this the easiest may involve making the repo public in github or gitlab.
