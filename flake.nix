@@ -8,6 +8,12 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
+      #url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,8 +27,13 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, ... }: {
-
+  outputs = inputs @ { self, nix-darwin, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, ... }: {
+    darwinConfigurations.lima = nix-darwin.lib.darwinSystem {
+      modules = [ ./configuration.nix ];
+      specialArgs = {
+        inherit inputs;
+      };
+    };
     homeConfigurations = {
       carlos = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.aarch64-darwin;
@@ -32,6 +43,5 @@
         ];
       };
     };
-
   };
 }

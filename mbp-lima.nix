@@ -8,12 +8,6 @@
     ./modules/zsh.nix
   ];
 
-  environment = {
-    systemPackages = with pkgs; [
-      devenv
-    ];
-  };
-
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "24.05";
