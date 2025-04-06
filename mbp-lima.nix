@@ -8,6 +8,12 @@
     ./modules/zsh.nix
   ];
 
+  environment = {
+    systemPackages = with pkgs; [
+      devenv
+    ];
+  };
+
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "24.05";
@@ -98,12 +104,12 @@
       enableZshIntegration = true;
 
       changeDirWidgetCommand = "fd --type d --hidden --strip-cwd-prefix --exclude .git";
-      changeDirWidgetOptions = ["--preview 'eza --tree --color=always {} | head -200'"];
+      changeDirWidgetOptions = [ "--preview 'eza --tree --color=always {} | head -200'" ];
 
       defaultCommand = "fd --type f --hidden --follow --exclude .git";
 
       fileWidgetCommand = "rg --files --hidden";
-      fileWidgetOptions = ["--preview 'bat -n --color=always --line-range :500 {}'"];
+      fileWidgetOptions = [ "--preview 'bat -n --color=always --line-range :500 {}'" ];
     };
 
     # pretty ls
