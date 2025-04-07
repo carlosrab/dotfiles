@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
     flake-utils.url = "github:numtide/flake-utils";
 
     # import the 1Password Shell Plugins Flake
@@ -29,10 +31,11 @@
     };
   };
 
-  outputs = inputs @ { self, darwin, nixpkgs, home-manager, ... }: {
+  outputs = inputs @ { self, darwin, homebrew, home-manager, nixpkgs, ... }: {
     darwinConfigurations.lima = darwin.lib.darwinSystem {
       modules = [
         ./darwin/macos/configuration.nix
+        homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -44,14 +47,5 @@
         }
       ];
     };
-    # homeConfigurations = {
-    #   carlos = inputs.home-manager.lib.homeManagerConfiguration {
-    #     pkgs = inputs.nixpkgs.legacyPackages.aarch64-darwin;
-    #     modules = [
-    #       ./mbp-lima.nix
-    #       inputs._1password-shell-plugins.hmModules.default
-    #     ];
-    #   };
-    # };
   };
 }

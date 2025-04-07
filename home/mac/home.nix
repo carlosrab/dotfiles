@@ -53,16 +53,12 @@
       gh
       #gitlab
       glab
-      # terminal ui for git
-      lazygit
     ];
 
     shellAliases = {
       # basic overrides
       cat = "bat";
       cd = "z";
-      # top = "btop";
-      # htop = "btop";
 
       # Adds `**` as a hack to work around some fzf-tab conflict for the ls alias.
       la = "eza -lag --icons **";
