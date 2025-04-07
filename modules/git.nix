@@ -53,6 +53,7 @@
       ".vs"
       ".vsc"
       ".vscode"
+      "*.code-workspace"
       # npm
       "node_modules"
       "npm-debug.log"

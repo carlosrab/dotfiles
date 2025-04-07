@@ -1,6 +1,4 @@
 {
-  description = "Homemanager lightweight flake for personal computer that should also allow for to quickly start working.";
-
   # inputs are other flake dependencies to make this main flake readable.
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
@@ -18,9 +16,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    flake-utils.url = "github:numtide/flake-utils";
+    # Helps spotlight discover nix-installed apps.
+    mac-app-util = {
+      url = "github:hraban/mac-app-util";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
+    homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # import the 1Password Shell Plugins Flake
     # https://developer.1password.com/docs/cli/shell-plugins/nix/
@@ -31,10 +42,11 @@
     };
   };
 
-  outputs = inputs @ { self, darwin, homebrew, home-manager, nixpkgs, ... }: {
+  outputs = inputs @ { self, darwin, homebrew, home-manager, mac-app-util, nixpkgs, ... }: {
     darwinConfigurations.lima = darwin.lib.darwinSystem {
       modules = [
         ./darwin/macos/configuration.nix
+        mac-app-util.darwinModules.default
         homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager
         {
