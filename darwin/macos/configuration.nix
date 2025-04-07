@@ -8,6 +8,17 @@
     home = "/Users/carlos";
   };
 
+  nix = {
+    # This will allow you to use nix-darwin with Determinate. Some nix-darwin
+    # functionality that relies on managing the Nix installation, like the
+    # `nix.*` options to adjust Nix settings or configure a Linux builder,
+    # will be unavailable.
+    # enable = false;
+    enable = true;
+    # Necessary for using flakes on this system.
+    settings.experimental-features = "nix-command flakes";
+  };
+
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
     config.allowUnfree = true;

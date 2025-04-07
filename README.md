@@ -2,30 +2,54 @@
 
 Files in this directory are our nixpkgs configuration that serves to easily replicate my development setup in different devices and environments.
 
-## Starting from scratch
+## Getting Started
 
 ### MacOS
 
-1. Install nix using the DeterminateSystems installer:
+1. Install xcode:
+
+```
+xcode-select --install
+```
+
+1. Install nix either through standard installation or determinate systems:
+   1. Determinate systems:
   ```
   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
   ```
-1. Get nix configuration from github:
-  ```
-  TBD
-  ```
-1. First home-manager run:
-  ```
-  nix run github:nix-community/home-manager -- switch --flake .
-  ``` 
 
-## Home Manager
+1. Get the nix flake from github:
 
-Together with home manager nixpkgs helps manage dotfiles as well. So ideally I do not need to maintain a separate repository for dotfile configurations.
+```
+git clone https://github.com/carlosrab/dotfiles.git
+```
 
-## Experimental
+1. First nix darwin run:
 
-I am currently testing this setup and hopefully it will result in an easy to use pattern for current and future setups.
+```
+nix run nix-darwin/nix-darwin-24.11#darwin-rebuild -- --flake="/path/to/flake/dir"
+```
+
+
+## Updating packages
+
+1. Run nix update
+
+```
+nix flake update
+```
+
+2. Run rebuild command:
+
+```
+darwin-rebuild switch --flake .#<hostname>
+```
+
+## Garbage collection
+
+```
+nix-store --gc
+```
 
 ## TODO
 
@@ -43,3 +67,17 @@ I am currently testing this setup and hopefully it will result in an easy to use
 * [ ] configure nvim
 * [ ] configure tmux
 * [ ] test pushing this configuration to a remote/virtual/or new machine. for this the easiest may involve making the repo public in github or gitlab.
+
+## Sources
+
+Followed: https://www.youtube.com/watch?v=Z8BL8mdzWHI
+
+And these other sources:
+* https://kristianfreeman.com/my-starter-macos-nix-config
+
+
+Useful pages
+
+1. Nix directory: https://search.nixos.org/
+2. For the nix-darwin manual run the `darwin-help` command.
+3. Documentation regarding nix modules can be found in https://mynixos.com.

@@ -22,7 +22,7 @@
       # better du
       du-dust
       # system info
-      neofetch
+      fastfetch
       # faster grep
       ripgrep
       # tldr but rust version. short help pages.
