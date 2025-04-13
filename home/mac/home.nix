@@ -60,10 +60,10 @@
       cat = "bat";
       cd = "z";
 
-      # Adds `**` as a hack to work around some fzf-tab conflict for the ls alias.
-      la = "eza -lag --icons **";
-      ls = "eza -lg --icons **";
-      lt = "eza -Tla -L=1 --icons --git --git-ignore";
+      # `.` works as a hack to work around some fzf-tab conflict for the ls alias.
+      la = "eza -la --icons .";
+      ls = "eza -l --icons .";
+      lt = "eza -Tla -L=1 --icons --git --git-ignore .";
       diff = "delta";
     };
   };

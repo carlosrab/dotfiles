@@ -74,10 +74,18 @@ Followed: https://www.youtube.com/watch?v=Z8BL8mdzWHI
 
 And these other sources:
 * https://kristianfreeman.com/my-starter-macos-nix-config
+* https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050
+  * https://www.youtube.com/watch?v=KJgN0lnA5mk
 
 
-Useful pages
+### Useful pages
 
 1. Nix directory: https://search.nixos.org/
 2. For the nix-darwin manual run the `darwin-help` command.
 3. Documentation regarding nix modules can be found in https://mynixos.com.
+
+### Examples
+
+1. https://github.com/schickling/dotfiles/tree/main
+2. https://github.com/shelken/nix-config
+3. https://github.com/fufexan/dotfiles/tree/main

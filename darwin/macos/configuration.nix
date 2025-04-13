@@ -27,6 +27,8 @@
   environment = {
     systemPackages = with pkgs; [
       devenv
+      direnv
+      neovim
       obsidian
     ];
   };
