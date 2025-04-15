@@ -6,15 +6,9 @@
     userEmail = "49134466+carlosrab@users.noreply.github.com";
 
     aliases = {
-      # e.g., g cm or g ca
-      cm = "commit";
+      # e.g., git sa or git ca
       ca = "commit --amend --no-edit";
       co = "checkout";
-
-      di = "diff";
-
-      pu = "pull";
-      ps = "push";
 
       sa = "add .";
       st = "status -sb";

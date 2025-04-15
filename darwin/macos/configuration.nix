@@ -26,6 +26,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      code-cursor
       devenv
       direnv
       neovim

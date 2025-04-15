@@ -14,23 +14,23 @@
     homeDirectory = "/Users/carlos";
 
     packages = with pkgs; [
-      # improved utilities
-      # better cat
-      bat
-      # better top
-      btop
-      # better du
-      du-dust
       # system info
       fastfetch
-      # faster grep
+
+      # utilities
+      # cat
+      bat
+      # top
+      btop
+      # du
+      du-dust
       ripgrep
-      # tldr but rust version. short help pages.
+      curl
+
+      # tldr rust version. short help pages.
       tlrc
 
-      # core
-      curl
-      # improved find
+      # find
       fd
       gnupg
 
@@ -94,7 +94,7 @@
       fileWidgetOptions = [ "--preview 'bat -n --color=always --line-range :500 {}'" ];
     };
 
-    # pretty ls
+    # ls
     eza.enable = true;
 
     zoxide = {
