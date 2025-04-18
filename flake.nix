@@ -43,7 +43,7 @@
   };
 
   outputs = inputs @ { self, darwin, homebrew, home-manager, mac-app-util, nixpkgs, ... }: {
-    darwinConfigurations.lima = darwin.lib.darwinSystem {
+    darwinConfigurations.yuzu = darwin.lib.darwinSystem {
       modules = [
         ./darwin/macos/configuration.nix
         mac-app-util.darwinModules.default
