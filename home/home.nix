@@ -1,69 +1,74 @@
-{ pkgs, ... }:
+# This is a system agnostic home module.
+# Do not add any platform specific pkgs or configuration here.
+{ pkgs, config, username, ... }:
 
 {
   imports = [
-    ../../modules/git.nix
-    ../../modules/ssh.nix
-    ../../modules/zsh.nix
+    ./modules/git.nix
+    ./modules/ssh.nix
+    ./modules/zsh.nix
   ];
+
+  xdg.enable = true;
+  xdg.configFile."aerospace/aerospace.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/code/dotfiles/aerospace/aerospace.toml";
 
   # This is required information for home-manager to do its job
   home = {
     stateVersion = "24.05";
-    username = "carlos";
-    homeDirectory = "/Users/carlos";
+    username = username;
+    homeDirectory = "/Users/${username}";
 
     packages = with pkgs; [
-      # system info
-      fastfetch
-
-      # utilities
-      # cat
-      bat
-      # top
-      btop
-      # du
-      du-dust
-      ripgrep
-      curl
-
-      # tldr rust version. short help pages.
-      tlrc
-
-      # find
-      fd
-      gnupg
-
-      openssl
-      tmux
-      wget
+      # git
+      # github
+      gh
+      # gitlab
+      glab
 
       # network tools
+      curl
+      gnupg
       nmap
+      openssl
+      wget
 
       # nix lang related
       # language server
       nil
       nixpkgs-fmt
 
-      #git
-      # diff tool
-      gitAndTools.delta
-      #github
-      gh
-      #gitlab
-      glab
+      # search
+      fd
+      ripgrep
+
+      # session
+      tmux
+      zellij
+
+      # system info
+      fastfetch
+
+      # utilities
+      bat
+      btop
+      du-dust
+      tlrc # short help pages
     ];
+
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
 
     shellAliases = {
       # basic overrides
       cat = "bat";
       cd = "z";
 
-      # `.` works as a hack to work around some fzf-tab conflict for the ls alias.
-      la = "eza -la --icons .";
-      ls = "eza -l --icons .";
-      lt = "eza -Tla -L=1 --icons --git --git-ignore .";
+      # --icons as the last flag results in useless flag related suggestions not
+      # directories.
+      la = "eza --icons -la";
+      ls = "eza --icons -l";
+      lt = "eza --icons -L=1 --git --git-ignore -Tla";
       diff = "delta";
     };
   };
@@ -102,6 +107,4 @@
       enableZshIntegration = true;
     };
   };
-
-  xdg.enable = true;
 }

@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
-  system.stateVersion = 5;
+  # This is required because of some conflict with determinate nix.
   ids.gids.nixbld = 30000;
 
-  users.users.carlos = {
-    name = "carlos";
-    home = "/Users/carlos";
+  users.users.${username} = {
+    name = username;
+    home = "/Users/${username}";
   };
 
   nix = {
@@ -27,10 +27,13 @@
 
   environment = {
     systemPackages = with pkgs; [
+      aerospace
       code-cursor
       devenv
       direnv
       neovim
+      raycast
+      stow
       obsidian
       vscode
     ];
@@ -43,7 +46,7 @@
     enableRosetta = true;
 
     # User owning the Homebrew prefix
-    user = "carlos";
+    user = username;
   };
 
   homebrew = {
@@ -54,10 +57,14 @@
     casks = [
       "ghostty"
       "google-chrome"
+      "google-drive"
+      "linearmouse"
       "parallels"
       "synology-drive"
     ];
-    masApps = { };
+    masApps = {
+      "WhatsApp" = 310633997;
+    };
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
@@ -66,50 +73,54 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.fira-mono
-    nerd-fonts.sauce-code-pro 
+    nerd-fonts.sauce-code-pro
   ];
 
   system = {
     defaults = {
       dock = {
         autohide = true;
-	orientation = "left";
+        orientation = "left";
         persistent-apps = [
           "/Applications/Firefox.app"
           "/System/Applications/System Settings.app"
-	];
-	show-recents = false;
+        ];
+        show-recents = false;
 
-	# Hot corners
-	wvous-bl-corner = 11; # launchpad
-	wvous-br-corner = 4; # desktop
-        
+        # Hot corners
+        wvous-bl-corner = 11; # launchpad
+        wvous-br-corner = 4; # desktop
+
         # Reorginize spaces based on recent use.
         mru-spaces = false;
       };
 
       finder = {
-	AppleShowAllFiles = true;
-	FXPreferredViewStyle = "Nlsv";
-	FXRemoveOldTrashItems = true;
-	NewWindowTarget = "Home";
-      	ShowPathbar = true;
-	ShowStatusBar = true;
+        AppleShowAllFiles = true;
+        FXPreferredViewStyle = "Nlsv";
+        FXRemoveOldTrashItems = true;
+        NewWindowTarget = "Home";
+        ShowPathbar = true;
+        ShowStatusBar = true;
       };
 
       hitoolbox.AppleFnUsageType = "Change Input Source";
 
       NSGlobalDomain = {
-	"com.apple.keyboard.fnState" = true;
-	AppleICUForce24HourTime = true;
-	KeyRepeat = 2;
+        "com.apple.keyboard.fnState" = true;
+        AppleICUForce24HourTime = true;
+        KeyRepeat = 2;
 
       };
 
       trackpad = {
         Clicking = true;
-	TrackpadThreeFingerTapGesture = 0;
+        TrackpadThreeFingerTapGesture = 2;
       };
+
+      universalaccess.reduceMotion = true;
     };
   };
+
+  system.stateVersion = 5;
 }

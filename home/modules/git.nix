@@ -10,7 +10,7 @@
       ca = "commit --amend --no-edit";
       co = "checkout";
 
-      sa = "add .";
+      a = "add .";
       st = "status -sb";
 
       ri = "rebase -i";
@@ -21,7 +21,7 @@
       enable = true;
 
       options = {
-        syntax-theme = "Coldark-Dark";
+        syntax-theme = "catppuccin-mocha";
         side-by-side = true;
       };
     };

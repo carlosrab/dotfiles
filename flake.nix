@@ -42,22 +42,35 @@
     };
   };
 
-  outputs = inputs @ { self, darwin, homebrew, home-manager, mac-app-util, nixpkgs, ... }: {
-    darwinConfigurations.yuzu = darwin.lib.darwinSystem {
-      modules = [
-        ./darwin/macos/configuration.nix
-        mac-app-util.darwinModules.default
-        homebrew.darwinModules.nix-homebrew
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.carlos = import ./home/mac/home.nix;
-          home-manager.sharedModules = [
-            inputs._1password-shell-plugins.hmModules.default
+  outputs = inputs @ { self, darwin, homebrew, home-manager, mac-app-util, nixpkgs, ... }:
+    {
+      darwinConfigurations.yuzu =
+        let
+          system = "aarch64-darwin";
+          username = "carlos";
+        in
+        darwin.lib.darwinSystem {
+          modules = [
+            ./darwin/configuration.nix
+            mac-app-util.darwinModules.default
+            homebrew.darwinModules.nix-homebrew
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit system username;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home/home.nix;
+              home-manager.sharedModules = [
+                inputs._1password-shell-plugins.hmModules.default
+              ];
+            }
           ];
-        }
-      ];
+          specialArgs = {
+            inherit system username;
+          };
+          system = system;
+        };
     };
-  };
 }
