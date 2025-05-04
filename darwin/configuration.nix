@@ -59,6 +59,7 @@
       "google-chrome"
       "google-drive"
       "linearmouse"
+      "mullvadvpn"
       "parallels"
       "synology-drive"
     ];

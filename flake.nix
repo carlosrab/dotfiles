@@ -44,7 +44,7 @@
 
   outputs = inputs @ { self, darwin, homebrew, home-manager, mac-app-util, nixpkgs, ... }:
     {
-      darwinConfigurations.yuzu =
+      darwinConfigurations.mbp =
         let
           system = "aarch64-darwin";
           username = "carlos";
