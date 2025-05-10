@@ -27,7 +27,6 @@
 
   environment = {
     systemPackages = with pkgs; [
-      aerospace
       code-cursor
       devenv
       direnv
