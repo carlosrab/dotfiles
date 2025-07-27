@@ -59,7 +59,7 @@
       "google-chrome"
       "google-drive"
       "linearmouse"
-      "mullvadvpn"
+      "mullvad-vpn"
       "parallels"
       "synology-drive"
     ];
@@ -78,6 +78,8 @@
   ];
 
   system = {
+    primaryUser = username;
+
     defaults = {
       dock = {
         autohide = true;
