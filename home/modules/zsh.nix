@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, username, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -13,6 +13,7 @@
     enableCompletion = true;
 
     history = {
+      path = "/Users/${username}/.zsh_history";
       expireDuplicatesFirst = true;
       ignoreDups = true;
       ignoreSpace = true; # ignore commands starting with a space
@@ -26,50 +27,58 @@
     # bindkey '^[[B' history-search-forward
     historySubstringSearch.enable = true;
 
-    initExtraFirst = ''
-      # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-      # Initialization code that may require console input (password prompts, [y/n]
-      # confirmations, etc.) must go above this block; everything else may go below.
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+    initContent =
+      let
+        contentBefore = ''
+          # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+          # Initialization code that may require console input (password prompts, [y/n]
+          # confirmations, etc.) must go above this block; everything else may go below.
+          if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+            source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+          fi
 
-      export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-    '';
+          export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+        '';
 
-    initExtra = ''
-      ## p10k related configuraiton.
-      source ~/.config/zsh/.p10k.zsh
+        extraContent = lib.mkAfter ''
+          ## p10k related configuraiton.
+          source ~/.config/zsh/.p10k.zsh
       
-      ## Custom keybindings
-      # cmd + <back arrow>
-      bindkey '^[[1;9D' backward-word
+          ## Custom keybindings
+          # cmd + <back arrow>
+          bindkey '^[[1;9D' backward-word
 
-      # alt + <back arrow>
-      bindkey '^[^[[D' backward-word
+          # alt + <back arrow>
+          bindkey '^[^[[D' backward-word
 
-      # cmd + <forward arrow>
-      bindkey '^[[1;9C' forward-word
+          # cmd + <forward arrow>
+          bindkey '^[[1;9C' forward-word
 
-      # alt + <forward arrow>
-      bindkey '^[^[[C' forward-word
+          # alt + <forward arrow>
+          bindkey '^[^[[C' forward-word
 
-      ## Additional fzf configuration
-      # As far as I know I cannot manage this configruation directly using
-      # home manager fzf definition. 
-      _fzf_comprun() {
-        local command=$1
-        shift
+          ## Additional fzf configuration
+          # As far as I know I cannot manage this configruation directly using
+          # home manager fzf definition. 
+          _fzf_comprun() {
+            local command=$1
+            shift
 
-        case "$command" in
-          cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-          ls)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-          export|unset) fzf --preview "eval 'echo \$ {}'" "$@" ;;
-          ssh)          fzf --preview 'dig {}' "$@" ;;
-          *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
-        esac
-      }
-    '';
+            case "$command" in
+              cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+              ls)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+              export|unset) fzf --preview "eval 'echo \$ {}'" "$@" ;;
+              ssh)          fzf --preview 'dig {}' "$@" ;;
+              *)            fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
+            esac
+          }
+        '';
+
+        contentAfter = lib.mkAfter ''
+          # TODO: Add extra content after if necessary.
+        '';
+      in
+      lib.mkMerge [ contentBefore extraContent contentAfter ];
 
     plugins = [
       {

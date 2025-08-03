@@ -27,7 +27,7 @@ git clone https://github.com/carlosrab/dotfiles.git
 1. First nix darwin run:
 
 ```
-nix run nix-darwin/nix-darwin-24.11#darwin-rebuild -- --flake="/path/to/flake/dir"
+nix run nix-darwin/nix-darwin-25.05#darwin-rebuild switch -- --flake=.#<flake name>
 ```
 
 
@@ -42,7 +42,7 @@ nix flake update
 2. Run rebuild command:
 
 ```
-darwin-rebuild switch --flake .#<hostname>
+darwin-rebuild switch --flake .#<flake name>
 ```
 
 ## Garbage collection

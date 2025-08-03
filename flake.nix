@@ -18,7 +18,6 @@
 
     flake-utils = {
       url = "github:numtide/flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Helps spotlight discover nix-installed apps.
@@ -30,7 +29,6 @@
 
     homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # import the 1Password Shell Plugins Flake
