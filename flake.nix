@@ -1,7 +1,7 @@
 {
   # inputs are other flake dependencies to make this main flake readable.
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
+    # nixpkgs.url = "github:NixOS/nixpkgs/release-25.11";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     darwin = {
@@ -23,8 +23,8 @@
     # Helps spotlight discover nix-installed apps.
     mac-app-util = {
       url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      # TODO: remove? https://github.com/hraban/mac-app-util/issues/39#issuecomment-3503946041
+      inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
     };
 
     homebrew = {
@@ -36,7 +36,7 @@
     _1password-shell-plugins = {
       url = "github:1Password/shell-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
+      # inputs.flake-utils.follows = "flake-utils";
     };
   };
 

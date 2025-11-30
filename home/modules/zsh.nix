@@ -1,8 +1,8 @@
-{ pkgs, lib, username, ... }:
+{ pkgs, config, lib, username, ... }:
 {
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.home.homeDirectory}/.config/zsh";
 
     # suggests a command based on input string so far.
     autosuggestion = {

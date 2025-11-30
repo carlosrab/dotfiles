@@ -14,7 +14,7 @@
 
   # This is required information for home-manager to do its job
   home = {
-    stateVersion = "24.05";
+    stateVersion = "25.11";
     username = username;
     homeDirectory = "/Users/${username}";
 
@@ -51,7 +51,7 @@
       # utilities
       bat
       btop
-      du-dust
+      dust
       tlrc # short help pages
     ];
 
