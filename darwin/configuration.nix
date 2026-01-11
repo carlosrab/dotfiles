@@ -55,6 +55,7 @@
       "mas"
     ];
     casks = [
+      "claude-code"
       "ghostty"
       "google-chrome"
       "google-drive"
