@@ -36,6 +36,7 @@
       stow
       obsidian
       vscode
+      zed-editor
     ];
   };
 
@@ -56,9 +57,12 @@
     ];
     casks = [
       "claude-code"
+      "codex-app"
+      "figma"
       "ghostty"
       "google-chrome"
       "google-drive"
+      "helium-browser"
       "linearmouse"
       "mullvad-vpn"
       "parallels"
