@@ -56,8 +56,10 @@
     enable = true;
     brews = [
       "mas"
+      "opencode"
     ];
     casks = [
+      "claude"
       "claude-code"
       "codex-app"
       "figma"
@@ -67,7 +69,7 @@
       "helium-browser"
       "linearmouse"
       "mullvad-vpn"
-      "opencode"
+      "opencode-desktop"
       "parallels"
       "synology-drive"
     ];
