@@ -18,6 +18,8 @@
     # enable = true;
     # Necessary for using flakes on this system.
     # settings.experimental-features = "nix-command flakes";
+
+    settings.download-buffer-size = 268435456; # 256MB
   };
 
   nixpkgs = {
@@ -65,6 +67,7 @@
       "helium-browser"
       "linearmouse"
       "mullvad-vpn"
+      "opencode"
       "parallels"
       "synology-drive"
     ];
