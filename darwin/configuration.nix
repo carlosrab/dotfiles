@@ -30,7 +30,6 @@
   environment = {
     systemPackages = with pkgs; [
       aerospace
-      bun
       code-cursor
       devenv
       direnv

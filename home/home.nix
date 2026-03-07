@@ -53,6 +53,9 @@
       btop
       dust
       tlrc # short help pages
+
+      # dev
+      bun
     ];
 
     sessionVariables = {
