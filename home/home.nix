@@ -56,6 +56,8 @@
 
       # dev
       bun
+      stripe-cli
+      turso-cli
     ];
 
     sessionVariables = {

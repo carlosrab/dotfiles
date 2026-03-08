@@ -57,8 +57,6 @@
     brews = [
       "mas"
       "opencode"
-      "stripe-cli"
-      "turso"
     ];
     casks = [
       "claude"
