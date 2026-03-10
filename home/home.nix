@@ -62,6 +62,9 @@
 
     sessionVariables = {
       EDITOR = "nvim";
+      GITHUB_PERSONAL_ACCESS_TOKEN = "$(op read op://dev/github-access/token)";
+      GH_TOKEN = "$(op read op://dev/github-access/token)";
+      GREPTILE_API_KEY = "$(op read op://dev/greptile_api/credential)";
     };
 
     shellAliases = {
