@@ -1,0 +1,11 @@
+# .envrc for shared env variables across code projects.
+#
+# direnv allow ~/code/.envrc 
+# direnv reload
+#
+# should be enough to get started.
+# test
+
+export GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://dev/github-personal-access-token/token")
+export GH_TOKEN=$(op read "op://dev/github-personal-access-token/token")
+export GREPTILE_API_KEY=$(op read "op://dev/greptile-api-key/credential")

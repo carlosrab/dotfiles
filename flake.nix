@@ -23,9 +23,10 @@
     # Helps spotlight discover nix-installed apps.
     mac-app-util = {
       url = "github:hraban/mac-app-util";
-      # TODO: remove? https://github.com/hraban/mac-app-util/issues/39#issuecomment-3503946041
-      inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
     };
+
 
     homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
@@ -61,6 +62,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.${username} = import ./home/home.nix;
               home-manager.sharedModules = [
+                mac-app-util.homeManagerModules.default
                 inputs._1password-shell-plugins.hmModules.default
               ];
             }

@@ -10,7 +10,7 @@
   ];
 
   xdg.enable = true;
-  xdg.configFile."aerospace/aerospace.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/code/dotfiles/aerospace/aerospace.toml";
+  xdg.configFile."aerospace/aerospace.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/code/dotfiles/home/modules/aerospace/aerospace.toml";
 
   # This is required information for home-manager to do its job
   home = {
@@ -66,6 +66,10 @@
     sessionVariables = {
       EDITOR = "nvim";
     };
+
+    # .envrc for shared env variables across code projects.
+    # symlink created in ~/code/.envrc.
+    file."code/.envrc".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/code/dotfiles/home/modules/env/envrc";
 
     shellAliases = {
       # basic overrides
