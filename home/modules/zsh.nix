@@ -75,7 +75,7 @@
         '';
 
         contentAfter = lib.mkAfter ''
-          # TODO: Add extra content after if necessary.
+          eval "$(direnv hook zsh)"
         '';
       in
       lib.mkMerge [ contentBefore extraContent contentAfter ];
