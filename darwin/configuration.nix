@@ -35,7 +35,6 @@
       raycast
       obsidian
       vscode
-      zed-editor
     ];
   };
 
@@ -53,7 +52,6 @@
     enable = true;
     brews = [
       "mas"
-      "opencode"
     ];
     casks = [
       "claude"
@@ -66,7 +64,6 @@
       "helium-browser"
       "linearmouse"
       "mullvad-vpn"
-      "opencode-desktop"
       "parallels"
       "synology-drive"
     ];
