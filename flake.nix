@@ -20,14 +20,6 @@
       url = "github:numtide/flake-utils";
     };
 
-    # Helps spotlight discover nix-installed apps.
-    mac-app-util = {
-      url = "github:hraban/mac-app-util";
-      # inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.cl-nix-lite.url = "github:r4v3n6101/cl-nix-lite/url-fix";
-    };
-
-
     homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
     };
@@ -41,7 +33,7 @@
     };
   };
 
-  outputs = inputs @ { self, darwin, homebrew, home-manager, mac-app-util, nixpkgs, ... }:
+  outputs = inputs @ { self, darwin, homebrew, home-manager, nixpkgs, ... }:
     {
       darwinConfigurations.mbp =
         let
@@ -51,7 +43,6 @@
         darwin.lib.darwinSystem {
           modules = [
             ./darwin/configuration.nix
-            mac-app-util.darwinModules.default
             homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
@@ -62,7 +53,6 @@
               home-manager.useUserPackages = true;
               home-manager.users.${username} = import ./home/home.nix;
               home-manager.sharedModules = [
-                mac-app-util.homeManagerModules.default
                 inputs._1password-shell-plugins.hmModules.default
               ];
             }

@@ -8,7 +8,6 @@ This is a Nix Flakes-based dotfiles configuration for macOS on Apple Silicon (aa
 - **Nix-Darwin** for macOS system-level configuration
 - **Home-Manager** for user environment and application configuration
 - **Nix-Homebrew** for managing Homebrew packages through Nix
-- **mac-app-util** for Spotlight discovery of Nix-installed apps (trampoline app bundles)
 - **1Password shell plugins** for SSH agent and CLI secret injection
 
 ## Commands
@@ -49,8 +48,6 @@ home/modules/
 - **Modular home-manager**: Each tool gets its own module in `home/modules/`
 - **`mkOutOfStoreSymlink`**: Used for configs that need to remain writable outside the Nix store (aerospace, envrc). Required when tools (e.g. direnv) need to modify file timestamps.
 - **1Password integration**: SSH agent socket at `~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock`, plus `op read` in envrc for injecting secrets via direnv.
-- **mac-app-util**: Enabled at both darwin and home-manager levels to create trampoline app bundles instead of rsync-based copying.
-
 ## Adding New Configuration
 
 - **System packages/apps**: Add to `darwin/configuration.nix` (Homebrew casks/formulae or nixpkgs)
