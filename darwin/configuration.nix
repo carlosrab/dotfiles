@@ -32,7 +32,6 @@
       aerospace
       neovim
       raycast
-      obsidian
       vscode
     ];
   };
@@ -66,6 +65,11 @@
       "helium-browser"
       "linearmouse"
       "mullvad-vpn"
+      # Keep Obsidian as a Homebrew cask for now: nixpkgs obsidian 1.13.4
+      # fails on aarch64-darwin because its DMG unpacks under a versioned
+      # folder instead of the expected Obsidian.app sourceRoot. Revisit after
+      # updating nixpkgs.
+      "obsidian"
       # "parallels"
       "synology-drive"
       # "visual-studio-code"

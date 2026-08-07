@@ -102,13 +102,17 @@
       enable = true;
       enableZshIntegration = true;
 
-      changeDirWidgetCommand = "fd --type d --hidden --strip-cwd-prefix --exclude .git";
-      changeDirWidgetOptions = [ "--preview 'eza --tree --color=always {} | head -200'" ];
+      changeDirWidget = {
+        command = "fd --type d --hidden --strip-cwd-prefix --exclude .git";
+        options = [ "--preview 'eza --tree --color=always {} | head -200'" ];
+      };
 
       defaultCommand = "fd --type f --hidden --follow --exclude .git";
 
-      fileWidgetCommand = "rg --files --hidden";
-      fileWidgetOptions = [ "--preview 'bat -n --color=always --line-range :500 {}'" ];
+      fileWidget = {
+        command = "rg --files --hidden";
+        options = [ "--preview 'bat -n --color=always --line-range :500 {}'" ];
+      };
     };
 
     # ls
