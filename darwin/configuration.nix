@@ -30,11 +30,10 @@
   environment = {
     systemPackages = with pkgs; [
       aerospace
-      # code-cursor
       neovim
       raycast
       obsidian
-      # vscode
+      vscode
     ];
   };
 
@@ -52,22 +51,24 @@
     enable = true;
     brews = [
       "mas"
+      "pi-coding-agent"
     ];
     casks = [
+      "antigravity"
       "claude"
       "claude-code"
+      "codex"
       "codex-app"
-      "cursor"
-      "figma"
+      # "figma"
       "ghostty"
       "google-chrome"
       "google-drive"
       "helium-browser"
       "linearmouse"
       "mullvad-vpn"
-      "parallels"
+      # "parallels"
       "synology-drive"
-      "visual-studio-code"
+      # "visual-studio-code"
     ];
     masApps = {
       # "WhatsApp" = 310633997;
