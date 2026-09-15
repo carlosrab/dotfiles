@@ -50,11 +50,9 @@
     enable = true;
     brews = [
       "mas"
-      "pi-coding-agent"
     ];
     casks = [
       "claude"
-      "claude-code"
       "chatgpt"
       # "figma"
       "ghostty"
@@ -70,6 +68,7 @@
       "obsidian"
       # "parallels"
       "synology-drive"
+      "t3-code"
       # "visual-studio-code"
     ];
     masApps = {
