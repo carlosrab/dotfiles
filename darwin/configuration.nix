@@ -53,11 +53,9 @@
       "pi-coding-agent"
     ];
     casks = [
-      "antigravity"
       "claude"
       "claude-code"
-      "codex"
-      "codex-app"
+      "chatgpt"
       # "figma"
       "ghostty"
       "google-chrome"
