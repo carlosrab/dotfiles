@@ -52,8 +52,11 @@
       "mas"
     ];
     casks = [
+      "blip"
       "claude"
+      "claude-code"
       "chatgpt"
+      "codex"
       # "figma"
       "ghostty"
       "google-chrome"
