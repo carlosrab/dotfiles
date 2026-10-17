@@ -4,7 +4,7 @@ This file provides guidance to AGENTS when working with code in this repository.
 
 ## Overview
 
-This is a Nix Flakes-based dotfiles configuration for macOS on Apple Silicon (aarch64-darwin). It uses:
+This repository contains a Nix Flakes-based configuration for macOS on Apple Silicon (aarch64-darwin) and an independent native Windows app installer. The Mac setup uses:
 - **Nix-Darwin** for macOS system-level configuration
 - **Home-Manager** for user environment and application configuration
 - **Nix-Homebrew** for managing Homebrew packages through Nix
@@ -55,3 +55,14 @@ home/modules/
 - **New tool config**: Create module in `home/modules/` and import in `home/home.nix`
 - **Editable config files**: Use `mkOutOfStoreSymlink` when the file must be writable at runtime
 - **macOS defaults**: Add to `system.defaults` in `darwin/configuration.nix`
+
+## Windows application setup
+
+- Read `windows/README.md` before changing Windows setup.
+- `windows/apps/desktop.json` and `gaming.json` use the native WinGet import schema. Gaming is optional.
+- `windows/bootstrap.ps1` is the entry point; `Bootstrap.psm1` implements selection, prerequisites, installation, and receipts.
+- Keep Windows PowerShell 5.1 compatibility. No Nix or WSL dependency.
+- Preserve exact IDs and sources, `--no-upgrade`, explicit agreement acceptance, no automatic removal/restart, and failure reporting.
+- Preview must work without WinGet, network calls, installations, or log creation.
+- Run `windows/tests/Run-Tests.ps1` for offline tests. They simulate WinGet; do not present them as live Windows installation validation.
+- Personal configuration and Windows preferences are later phases; do not add them to app installation implicitly.

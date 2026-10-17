@@ -1,0 +1,35 @@
+{
+  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+  "Sources": [
+    {
+      "SourceDetails": {
+        "Name": "winget",
+        "Argument": "https://cdn.winget.microsoft.com/cache",
+        "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+        "Type": "Microsoft.PreIndexed.Package"
+      },
+      "Packages": [
+        { "PackageIdentifier": "AgileBits.1Password" },
+        { "PackageIdentifier": "Google.Chrome" },
+        { "PackageIdentifier": "Google.GoogleDrive" },
+        { "PackageIdentifier": "Obsidian.Obsidian" },
+        { "PackageIdentifier": "Synology.DriveClient" },
+        { "PackageIdentifier": "MullvadVPN.MullvadVPN" },
+        { "PackageIdentifier": "Anthropic.Claude" },
+        { "PackageIdentifier": "Anthropic.ClaudeCode" },
+        { "PackageIdentifier": "OpenAI.Codex" }
+      ]
+    },
+    {
+      "SourceDetails": {
+        "Name": "msstore",
+        "Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+        "Identifier": "StoreEdgeFD",
+        "Type": "Microsoft.Rest"
+      },
+      "Packages": [
+        { "PackageIdentifier": "9PLM9XGG6VKS" }
+      ]
+    }
+  ]
+}

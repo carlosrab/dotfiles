@@ -1,6 +1,20 @@
-# Nixpkgs
+# Dotfiles
 
-Nix Flakes-based dotfiles configuration for macOS on Apple Silicon. Uses nix-darwin, home-manager, and nix-homebrew.
+Mac configuration uses Nix Flakes, nix-darwin, home-manager, and nix-homebrew on
+Apple Silicon. Native Windows app installation uses a separate WinGet and
+PowerShell setup in `windows/`.
+
+## Bootstrap Windows Apps
+
+See [Windows setup](windows/README.md) for prerequisites, the app lists, and
+installation instructions. From this repository's root, preview the selection:
+
+```powershell
+.\windows\bootstrap.ps1 -Preview
+```
+
+Add `-IncludeGaming` to include optional game launchers. The Windows setup runs
+independently of Nix and does not change the Mac configuration.
 
 ## Bootstrap A New Mac
 

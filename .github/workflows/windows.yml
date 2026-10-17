@@ -1,0 +1,27 @@
+name: Windows bootstrap
+
+on:
+  push:
+    paths:
+      - 'windows/**'
+      - '.github/workflows/windows.yml'
+  pull_request:
+    paths:
+      - 'windows/**'
+      - '.github/workflows/windows.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Windows PowerShell 5.1
+        shell: powershell
+        run: .\windows\tests\Run-Tests.ps1
+      - name: PowerShell 7
+        shell: pwsh
+        run: .\windows\tests\Run-Tests.ps1
